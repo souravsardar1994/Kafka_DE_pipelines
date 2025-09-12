@@ -1,4 +1,5 @@
 from pyspark.sql import SparkSession
+from PropertyConstants import PropertyConstants
 
 spark = (
     SparkSession.builder
@@ -7,10 +8,10 @@ spark = (
         .getOrCreate()
 )
 
-BOOTSTRAP_SERVER = "pkc-921jm.us-east-2.aws.confluent.cloud:9092"
-JAAS_MODULE = "org.apache.kafka.common.security.plain.PlainLoginModule"
-CLUSTER_API_KEY = "W3DX2NIFXG4EP32Q"
-CLUSTER_API_SECRET = "cfltjd7K8aJ0VIo17pPo4OTk6zqctLkObl3LV75atvpiM/jCfxEuv5HLfvm5vZNA"
+BOOTSTRAP_SERVER = PropertyConstants.BOOTSTRAP_SERVER
+JAAS_MODULE = PropertyConstants.JAAS_MODULE
+CLUSTER_API_KEY = PropertyConstants.CLUSTER_API_KEY
+CLUSTER_API_SECRET = PropertyConstants.CLUSTER_API_SECRET
 
 df = (
     spark.read

@@ -1,17 +1,17 @@
 from confluent_kafka import Producer
 import json
 import time
-
+from PropertyConstants import PropertyConstants
 
 class InvoiceProducer:
     def __init__(self):
         self.topic = "invoices"
         self.conf = {
-            'bootstrap.servers': 'pkc-921jm.us-east-2.aws.confluent.cloud:9092',
+            'bootstrap.servers': PropertyConstants.BOOTSTRAP_SERVER,
             'security.protocol': 'SASL_SSL',
             'sasl.mechanism': 'PLAIN',
-            'sasl.username': 'W3DX2NIFXG4EP32Q',
-            'sasl.password': 'cfltjd7K8aJ0VIo17pPo4OTk6zqctLkObl3LV75atvpiM/jCfxEuv5HLfvm5vZNA',
+            'sasl.username': PropertyConstants.CLUSTER_API_KEY,
+            'sasl.password': PropertyConstants.CLUSTER_API_SECRET,
             'client.id': "sourav-local"
         }
 
