@@ -3,6 +3,7 @@ import json
 import time
 from PropertyConstants import PropertyConstants
 
+
 class InvoiceProducer:
     def __init__(self):
         self.topic = "invoices"
@@ -30,11 +31,11 @@ class InvoiceProducer:
                 invoice = json.loads(line)
                 store_id = invoice["StoreID"]
                 producer.produce(
-                        self.topic,
-                        key=store_id,
-                        value=json.dumps(invoice),
-                        callback=self.delivery_callback
-                    )
+                    self.topic,
+                    key=store_id,
+                    value=json.dumps(invoice),
+                    callback=self.delivery_callback
+                )
                 time.sleep(0.5)
                 producer.poll(1)
                 counter += 1
